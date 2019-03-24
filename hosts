@@ -1,0 +1,15 @@
+[all:vars]
+ansible_user=cisco
+ansible_ssh_pass=cisco
+ansible_network_os=ios
+ansible_connection=network_cli
+
+[switches]
+labswitch01 ansible_host=10.10.10.101
+labswitch02 ansible_host=10.10.10.102
+
+[routers]
+labrouter01 ansible_host=10.10.10.111
+labrouter02 ansible_host=10.10.10.112
+labrouter03 ansible_host=10.10.10.113
+labrouter04 ansible_host=10.10.10.114

@@ -1,0 +1,35 @@
+---
+- hosts: all
+  gather_facts: false
+  connection: local
+
+  tasks:
+   - name: configure the login banner
+     ios_banner:
+       banner: login
+       text: |
+         ***** Warning *****
+
+         This is a secure system
+
+         Access is forbidden
+
+         No access is permitted without permission
+
+         ***** Warning *****
+       state: present
+
+   - name: remove the motd banner
+     ios_banner:
+       banner: motd
+       state: absent
+
+   - name: remove the exec banner
+     ios_banner:
+       banner: exec
+       state: absent
+
+   - name: remove the incoming banner
+     ios_banner:
+       banner: incoming
+       state: absent

@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: false
+
+  tasks:
+   -  name: Show Run on Device
+      ios_command:
+        commands:
+          - show run
+      register: config
+
+   -  name: Save config to /backups directory
+      copy:
+        content: "{{config.stdout[0]}}"
+        dest: "./backups/{{inventory_hostname}}-config.txt"		
