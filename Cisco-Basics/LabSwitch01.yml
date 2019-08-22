@@ -1,0 +1,70 @@
+---
+- hosts: labswitch01
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: Set Interface Description on Port
+      ios_config:
+        lines:
+         - description "Configured by Ansible - Switch Port LabRouter01"
+        parents: Interface gigabitEthernet 0/0
+
+    - name: Set Interface Description on Port
+      ios_config:
+        lines:
+         - description "Configured by Ansible - Switch Port LabRouter02
+        parents: Interface gigabitEthernet 0/1
+
+    - name: Set Interface Description on Port
+      ios_config:
+        lines:
+         - description "Configured by Ansible - Switch Port LabRouter03
+        parents: Interface gigabitEthernet 0/2
+
+    - name: Set Interface Description on Port
+      ios_config:
+        lines:
+         - description "Configured by Ansible - Switch Port"
+        parents: Interface gigabitEthernet 0/3
+
+    - name: Set Interface Description - Port Channel
+      ios_config:
+        lines:
+         - description "Configured by Ansible - Port Channel 1"
+        parents: Interface gigabitEthernet 1/0
+
+    - name: Set Interface Description - Port Channel
+      ios_config:
+        lines:
+         - description "Configured by Ansible - Port Channel 1"
+        parents: Interface gigabitEthernet 1/1
+
+    - name: Place Spare Switch Port in VLAN 10 - Interface gigabitEthernet 1/3
+      ios_config:
+        lines:
+         - description "Configured by Ansible - Switch Port Spare Port VLAN 10"
+         - switchport mode access
+         - switchport access vlan 10
+        parents: Interface gigabitEthernet 1/2
+
+
+    - name: Place VPC in VLAN 10 - Interface gigabitEthernet 1/3
+      ios_config:
+        lines:
+         - description "Configured by Ansible - VLAN 10 Access Port"
+         - switchport mode access
+         - switchport access vlan 10
+        parents: Interface gigabitEthernet 1/3
+
+    - name: Set Interface Description on Port Channel 1 Interface
+      ios_config:
+        lines:
+         - description "Configured by Ansible - Port Channel 1 Interface"
+        parents: Interface Po1
+
+    - name: Set Interface Description on VLAN 1 Interface
+      ios_config:
+        lines:
+         - description "Configured by Ansible - VLAN 1 Interface"
+        parents: Interface Vl1
