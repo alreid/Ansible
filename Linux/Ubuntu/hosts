@@ -1,0 +1,7 @@
+[all:vars]
+
+
+
+[ubuntu]
+nms ansible_host=192.168.0.8
+oxidized ansible_host=192.168.0.9
