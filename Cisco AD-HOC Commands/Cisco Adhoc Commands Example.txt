@@ -1,0 +1,13 @@
+Cisco Adhoc Commands Example
+============================
+
+Show Commands
+-------------
+ansible -m cli_command -a "command='show ip int br'" switches
+ansible -m cli_command -a "command='show ip int br'" routers
+ansible -m cli_command -a "command='show ip int br'" all
+
+
+Show Commands - OR Line
+-----------------------
+ansible -m cli_command -a "command='show version | include (flash|IOS)'" all
