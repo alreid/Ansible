@@ -3,5 +3,6 @@
 
 
 [ubuntu]
+dns ansible_host=192.168.0.5
 nms ansible_host=192.168.0.8
 oxidized ansible_host=192.168.0.9
